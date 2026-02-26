@@ -49,12 +49,12 @@ Public Class Principal
         btnUsers.Enabled = UsuarioActual.HasRole("Root")
         btnMovement.Visible = UsuarioActual.HasAnyRole("Root", "Ventas")
         btnMovement.Enabled = UsuarioActual.HasAnyRole("Root", "Ventas")
-        btnProducts.Visible = UsuarioActual.HasAnyRole("Root", "Depósito", "Ventas")
-        btnProducts.Enabled = UsuarioActual.HasAnyRole("Root", "Depósito", "Ventas")
-        btnSuppliers.Visible = UsuarioActual.HasAnyRole("Root", "Depósito")
-        btnSuppliers.Enabled = UsuarioActual.HasAnyRole("Root", "Depósito")
-        btnCategorys.Visible = UsuarioActual.HasAnyRole("Root", "Depósito", "Ventas")
-        btnCategorys.Enabled = UsuarioActual.HasAnyRole("Root", "Depósito", "Ventas")
+        btnProducts.Visible = UsuarioActual.HasAnyRole("Root", "Deposito", "Ventas")
+        btnProducts.Enabled = UsuarioActual.HasAnyRole("Root", "Deposito", "Ventas")
+        btnSuppliers.Visible = UsuarioActual.HasAnyRole("Root", "Deposito")
+        btnSuppliers.Enabled = UsuarioActual.HasAnyRole("Root", "Deposito")
+        btnCategorys.Visible = UsuarioActual.HasAnyRole("Root", "Deposito", "Ventas")
+        btnCategorys.Enabled = UsuarioActual.HasAnyRole("Root", "Deposito", "Ventas")
 
 
     End Sub
@@ -76,7 +76,7 @@ Public Class Principal
     End Sub
 
     Private Sub btnProducts_Click(sender As Object, e As EventArgs) Handles btnProducts.Click
-        If UsuarioActual.HasAnyRole("Ventas", "Root", "Depósito") Then
+        If UsuarioActual.HasAnyRole("Ventas", "Root", "Deposito") Then
             OpenChildForm(New Productos())
         Else
             MsgBox("No tiene permiso para acceder a Productos.")
@@ -84,7 +84,7 @@ Public Class Principal
     End Sub
 
     Private Sub btnSuppliers_Click(sender As Object, e As EventArgs) Handles btnSuppliers.Click
-        If UsuarioActual.HasAnyRole("Root", "Depósito") Then
+        If UsuarioActual.HasAnyRole("Root", "Deposito") Then
             OpenChildForm(New proveedores())
         Else
             MsgBox("No tiene permiso para acceder a Proveedores.")
@@ -92,7 +92,7 @@ Public Class Principal
     End Sub
 
     Private Sub btnCategorys_Click(sender As Object, e As EventArgs) Handles btnCategorys.Click
-        If UsuarioActual.HasAnyRole("Root", "Depósito", "Ventas") Then
+        If UsuarioActual.HasAnyRole("Root", "Deposito", "Ventas") Then
             OpenChildForm(New Categorias())
         Else
             MsgBox("No tiene permiso para acceder a Categorías.")
@@ -111,7 +111,4 @@ Public Class Principal
         Me.Close()
     End Sub
 
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
-    End Sub
 End Class

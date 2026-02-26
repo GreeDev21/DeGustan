@@ -35,7 +35,7 @@ Public Class Movimientos
 
     ' Cargar datos del movimiento
     Private Sub CargarMovimiento(Optional movimientoId As Integer = -1)
-        Dim connStr As String = "server=localhost;user=root;password=1234;database=degustan_mini"
+        Dim connStr As String = "server=localhost;user id=root;password=3312U;database=degustan;port=3306;"
         Using conn As New MySqlConnection(connStr)
             Dim query As String = "
             SELECT 
@@ -154,8 +154,8 @@ Public Class Movimientos
             query &= " ORDER BY m.created_at DESC;"
 
             Dim cmd As New MySqlCommand(query, conexion)
-            'If productId > 0 Then cmd.Parameters.AddWithValue("@pid", productId)
-            'If Not String.IsNullOrEmpty(tipo) Then cmd.Parameters.AddWithValue("@tipo", tipo)
+            If productId > 0 Then cmd.Parameters.AddWithValue("@pid", productId)
+            If Not String.IsNullOrEmpty(tipo) Then cmd.Parameters.AddWithValue("@tipo", tipo)
 
             Dim reader As MySqlDataReader = cmd.ExecuteReader()
             ListView1.Items.Clear()
@@ -239,7 +239,10 @@ Public Class Movimientos
                 cantidadNueva = stockActual + cantidadInput
             ElseIf tipo = "salida" Then
                 cantidadNueva = stockActual - cantidadInput
-                If cantidadNueva < 0 Then cantidadNueva = 0 ' evitar negativos
+                If cantidadNueva < 0 Then
+                    MsgBox("No hay stock suficiente para realizar la salida.")
+                    Exit Sub
+                End If ' evitar negativos
             ElseIf tipo = "ajuste" Then
                 ' Para ajuste interpretamos el número ingresado como nuevo stock
                 cantidadNueva = cantidadInput
@@ -384,7 +387,7 @@ Public Class Movimientos
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        Dim prodId = -1
+        Dim prodId As Integer = -1
         Dim tipo = ""
         Try
             If ComboBox1.SelectedValue IsNot Nothing Then

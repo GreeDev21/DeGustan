@@ -48,6 +48,7 @@ Partial Class Categorias
         colUpdated = New ColumnHeader()
         btnModify = New Button()
         tmrSearch = New Timer(components)
+        Label12 = New Label()
         CType(PictureBox7, ComponentModel.ISupportInitialize).BeginInit()
         GroupBox1.SuspendLayout()
         GroupBox2.SuspendLayout()
@@ -304,12 +305,25 @@ Partial Class Categorias
         ' 
         tmrSearch.Interval = 400
         ' 
+        ' Label12
+        ' 
+        Label12.Anchor = AnchorStyles.Top Or AnchorStyles.Right
+        Label12.AutoSize = True
+        Label12.Font = New Font("Segoe UI", 12F)
+        Label12.ForeColor = Color.FromArgb(CByte(198), CByte(149), CByte(72))
+        Label12.Location = New Point(1086, 9)
+        Label12.Name = "Label12"
+        Label12.Size = New Size(77, 21)
+        Label12.TabIndex = 24
+        Label12.Text = "Categoría"
+        ' 
         ' Categorias
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(49), CByte(33), CByte(70))
         ClientSize = New Size(1229, 781)
+        Controls.Add(Label12)
         Controls.Add(btnModify)
         Controls.Add(lvDataGridCat)
         Controls.Add(GroupBox2)
@@ -329,6 +343,7 @@ Partial Class Categorias
         GroupBox2.ResumeLayout(False)
         GroupBox2.PerformLayout()
         ResumeLayout(False)
+        PerformLayout()
     End Sub
 
     Friend WithEvents btnClose As Button
@@ -357,4 +372,5 @@ Partial Class Categorias
     Friend WithEvents rtbDesc As RichTextBox
     Friend WithEvents btnModify As Button
     Friend WithEvents tmrSearch As Timer
+    Friend WithEvents Label12 As Label
 End Class

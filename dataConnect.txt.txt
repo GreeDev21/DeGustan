@@ -1,1 +1,1 @@
-Server=localhost;Database=degustan_mini;Uid=root;Pwd=1234;
+Server=localhost;Database=nombre-de-la-bd;Uid=usuario;Pwdcontraseña=;

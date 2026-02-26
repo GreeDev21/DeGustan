@@ -196,6 +196,7 @@ Public Class Usuarios
 
 
     Private Sub btnModify_Click(sender As Object, e As EventArgs) Handles btnModify.Click
+
         ' Validar selección
         If dtgridUsers.SelectedRows.Count = 0 Then
             MessageBox.Show("Seleccioná un usuario de la lista para modificar.")
@@ -211,10 +212,17 @@ Public Class Usuarios
         ' Obtener ID del usuario seleccionado
         Dim idUsuario As Integer = Convert.ToInt32(dtgridUsers.SelectedRows(0).Cells("id").Value)
 
-        ' Preparar comando UPDATE
-        Dim cmd As New MySqlCommand("UPDATE usuarios SET username=@user, password=@pass, email=@email, nombre=@nombre, apellido=@apellido, rol_id=@rol, activo=@activo, imagen=@imagen WHERE id=@id", conexion)
+        Dim cmd As MySqlCommand
+
+        If tbPassword.Text = "" Then
+            cmd = New MySqlCommand("UPDATE usuarios SET username=@user, email=@email, nombre=@nombre, apellido=@apellido, rol_id=@rol, activo=@activo, imagen=@imagen WHERE id=@id", conexion)
+        Else
+            cmd = New MySqlCommand("UPDATE usuarios SET username=@user, password=@pass, email=@email, nombre=@nombre, apellido=@apellido, rol_id=@rol, activo=@activo, imagen=@imagen WHERE id=@id", conexion)
+            cmd.Parameters.AddWithValue("@pass", tbPassword.Text)
+        End If
+
+        ' Parámetros comunes
         cmd.Parameters.AddWithValue("@user", tbUsername.Text)
-        cmd.Parameters.AddWithValue("@pass", tbPassword.Text)
         cmd.Parameters.AddWithValue("@email", tbEmail.Text)
         cmd.Parameters.AddWithValue("@nombre", tbname.Text)
         cmd.Parameters.AddWithValue("@apellido", tbapellido.Text)

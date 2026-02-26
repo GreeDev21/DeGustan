@@ -416,57 +416,62 @@ Public Class Productos
             Exit Sub
         End If
 
+        Dim query As String = "
+        UPDATE productos SET 
+            codigo = @codigo,
+            nombre = @nombre,
+            descripcion = @descripcion,
+            precio_compra = @precio_compra,
+            precio_venta = @precio_venta,
+            stock_actual = @stock_actual,
+            stock_minimo = @stock_minimo,
+            categoria_id = (SELECT id FROM categorias WHERE nombre = @categoria LIMIT 1),
+            proveedor_id = (SELECT id FROM proveedores WHERE nombre = @proveedor LIMIT 1),
+            imagen = @imagen,
+            update_at = NOW()
+        WHERE id = @id"
+
         Try
-            conexion.Open()
+            If conexion.State = ConnectionState.Closed Then conexion.Open()
 
-            Dim query As String = "
-            UPDATE productos SET 
-                codigo = @codigo,
-                nombre = @nombre,
-                descripcion = @descripcion,
-                precio_compra = @precio_compra,
-                precio_venta = @precio_venta,
-                stock_actual = @stock_actual,
-                stock_minimo = @stock_minimo,
-                categoria_id = (SELECT id FROM categorias WHERE nombre = @categoria LIMIT 1),
-                proveedor_id = (SELECT id FROM proveedores WHERE nombre = @proveedor LIMIT 1),
-                imagen = @imagen,
-                update_at = NOW()
-            WHERE id = @id"
+            Using cmd As New MySqlCommand(query, conexion)
+                cmd.Parameters.AddWithValue("@codigo", tbCodigo.Text.Trim())
+                cmd.Parameters.AddWithValue("@nombre", tbName.Text.Trim())
+                cmd.Parameters.AddWithValue("@descripcion", rtbDescription.Text.Trim())
+                cmd.Parameters.AddWithValue("@precio_compra", Convert.ToDecimal(tbBuy.Text.Trim()))
+                cmd.Parameters.AddWithValue("@precio_venta", Convert.ToDecimal(tbSell.Text.Trim()))
+                cmd.Parameters.AddWithValue("@stock_actual", Convert.ToInt32(tbCurrent.Text.Trim()))
+                cmd.Parameters.AddWithValue("@stock_minimo", Convert.ToInt32(tbMin.Text.Trim()))
+                cmd.Parameters.AddWithValue("@categoria", cbCategory.SelectedItem.ToString())
+                cmd.Parameters.AddWithValue("@proveedor", cbSupplie.SelectedItem.ToString())
+                cmd.Parameters.AddWithValue("@id", selectedId)
 
-            Dim cmd As New MySqlCommand(query, conexion)
-            cmd.Parameters.AddWithValue("@codigo", tbCodigo.Text.Trim())
-            cmd.Parameters.AddWithValue("@nombre", tbName.Text.Trim())
-            cmd.Parameters.AddWithValue("@descripcion", rtbDescription.Text.Trim())
-            cmd.Parameters.AddWithValue("@precio_compra", Convert.ToDecimal(tbBuy.Text.Trim()))
-            cmd.Parameters.AddWithValue("@precio_venta", Convert.ToDecimal(tbSell.Text.Trim()))
-            cmd.Parameters.AddWithValue("@stock_actual", Convert.ToInt32(tbCurrent.Text.Trim()))
-            cmd.Parameters.AddWithValue("@stock_minimo", Convert.ToInt32(tbMin.Text.Trim()))
-            cmd.Parameters.AddWithValue("@categoria", cbCategory.SelectedItem.ToString())
-            cmd.Parameters.AddWithValue("@proveedor", cbSupplie.SelectedItem.ToString())
-            cmd.Parameters.AddWithValue("@id", selectedId)
+                ' Convertir imagen del PictureBox a bytes (clonando para evitar problemas GDI+)
+                Dim imagenBytes As Byte() = Nothing
+                If pbImgProd.Image IsNot Nothing Then
+                    Using bmp As New Bitmap(pbImgProd.Image)
+                        Using ms As New MemoryStream()
+                            bmp.Save(ms, Imaging.ImageFormat.Png) ' PNG conserva transparencia y evita negros
+                            imagenBytes = ms.ToArray()
+                        End Using
+                    End Using
+                End If
 
-            ' Convertir imagen del PictureBox a bytes
-            Dim imagenBytes As Byte() = Nothing
-            If pbImgProd.Image IsNot Nothing Then
-                Using ms As New MemoryStream()
-                    pbImgProd.Image.Save(ms, Imaging.ImageFormat.Jpeg)
-                    imagenBytes = ms.ToArray()
-                End Using
-            End If
+                Dim paramImg As New MySqlParameter("@imagen", MySqlDbType.LongBlob)
+                paramImg.Value = If(imagenBytes IsNot Nothing, CType(imagenBytes, Object), DBNull.Value)
+                cmd.Parameters.Add(paramImg)
 
-            ' Usar MySqlParameter con tipo LongBlob para evitar errores
-            Dim paramImg As New MySqlParameter("@imagen", MySqlDbType.LongBlob)
-            paramImg.Value = If(imagenBytes IsNot Nothing, CType(imagenBytes, Object), DBNull.Value)
-            cmd.Parameters.Add(paramImg)
+                cmd.ExecuteNonQuery()
+            End Using
 
-            cmd.ExecuteNonQuery()
-
-            conexion.Close()
             cargaGrilla()
             clearForm()
         Catch ex As Exception
-            MsgBox("Error al modificar el producto: " & ex.Message)
+            MsgBox("Error al modificar el producto: " & ex.Message, MsgBoxStyle.Critical)
+        Finally
+            If conexion IsNot Nothing AndAlso conexion.State <> ConnectionState.Closed Then
+                conexion.Close()
+            End If
         End Try
     End Sub
     Private Sub btnNew_Click(sender As Object, e As EventArgs) Handles btnNew.Click

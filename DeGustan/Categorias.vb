@@ -259,9 +259,9 @@ Public Class Categorias
             lvDataGridCat.Items.Clear()
             cargarCategorias("id")  ' Recargo las categorías ordenadas por ID
             Exit Sub
-        End If
 
-        CargarSugerencias(tbNameQuery.Text.Trim())
+        End If
+        CargarSugerencias(tbNameQuery.Text)
     End Sub
 
     Private Sub Categorias_Shown(sender As Object, e As EventArgs) Handles Me.Shown

@@ -67,10 +67,10 @@ Partial Class Movimientos
         ' btnClose
         ' 
         btnClose.Anchor = AnchorStyles.Top Or AnchorStyles.Right
-        btnClose.Location = New Point(1363, 0)
+        btnClose.Location = New Point(1193, 0)
         btnClose.Margin = New Padding(3, 2, 3, 2)
         btnClose.Name = "btnClose"
-        btnClose.Size = New Size(40, 40)
+        btnClose.Size = New Size(35, 30)
         btnClose.TabIndex = 0
         btnClose.Text = "X"
         btnClose.UseVisualStyleBackColor = True
@@ -82,10 +82,10 @@ Partial Class Movimientos
         btnAdd.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(66), CByte(51), CByte(85))
         btnAdd.FlatStyle = FlatStyle.Flat
         btnAdd.ForeColor = SystemColors.Control
-        btnAdd.Location = New Point(82, 763)
+        btnAdd.Location = New Point(72, 572)
         btnAdd.Margin = New Padding(3, 2, 3, 2)
         btnAdd.Name = "btnAdd"
-        btnAdd.Size = New Size(105, 42)
+        btnAdd.Size = New Size(92, 32)
         btnAdd.TabIndex = 1
         btnAdd.Text = "Agregar"
         btnAdd.UseVisualStyleBackColor = True
@@ -97,10 +97,10 @@ Partial Class Movimientos
         btnDelete.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(66), CByte(51), CByte(85))
         btnDelete.FlatStyle = FlatStyle.Flat
         btnDelete.ForeColor = SystemColors.Control
-        btnDelete.Location = New Point(389, 763)
+        btnDelete.Location = New Point(340, 572)
         btnDelete.Margin = New Padding(3, 2, 3, 2)
         btnDelete.Name = "btnDelete"
-        btnDelete.Size = New Size(105, 42)
+        btnDelete.Size = New Size(92, 32)
         btnDelete.TabIndex = 3
         btnDelete.Text = "Eliminar"
         btnDelete.UseVisualStyleBackColor = True
@@ -118,11 +118,11 @@ Partial Class Movimientos
         GroupBox1.Controls.Add(cbProductID)
         GroupBox1.Controls.Add(Label1)
         GroupBox1.ForeColor = SystemColors.Control
-        GroupBox1.Location = New Point(64, 338)
+        GroupBox1.Location = New Point(56, 254)
         GroupBox1.Margin = New Padding(3, 2, 3, 2)
         GroupBox1.Name = "GroupBox1"
         GroupBox1.Padding = New Padding(3, 2, 3, 2)
-        GroupBox1.Size = New Size(417, 361)
+        GroupBox1.Size = New Size(365, 271)
         GroupBox1.TabIndex = 4
         GroupBox1.TabStop = False
         GroupBox1.Text = "Datos"
@@ -130,39 +130,39 @@ Partial Class Movimientos
         ' tbmotivo
         ' 
         tbmotivo.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
-        tbmotivo.Location = New Point(171, 192)
+        tbmotivo.Location = New Point(150, 144)
         tbmotivo.Margin = New Padding(3, 2, 3, 2)
         tbmotivo.Multiline = True
         tbmotivo.Name = "tbmotivo"
-        tbmotivo.Size = New Size(175, 82)
+        tbmotivo.Size = New Size(154, 62)
         tbmotivo.TabIndex = 13
         ' 
         ' Label4
         ' 
         Label4.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
         Label4.AutoSize = True
-        Label4.Location = New Point(11, 194)
+        Label4.Location = New Point(10, 146)
         Label4.Name = "Label4"
-        Label4.Size = New Size(56, 20)
+        Label4.Size = New Size(45, 15)
         Label4.TabIndex = 12
         Label4.Text = "Motivo"
         ' 
         ' tbNumber
         ' 
         tbNumber.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
-        tbNumber.Location = New Point(171, 134)
+        tbNumber.Location = New Point(150, 100)
         tbNumber.Margin = New Padding(3, 2, 3, 2)
         tbNumber.Name = "tbNumber"
-        tbNumber.Size = New Size(175, 27)
+        tbNumber.Size = New Size(154, 23)
         tbNumber.TabIndex = 11
         ' 
         ' Label3
         ' 
         Label3.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
         Label3.AutoSize = True
-        Label3.Location = New Point(11, 138)
+        Label3.Location = New Point(10, 104)
         Label3.Name = "Label3"
-        Label3.Size = New Size(69, 20)
+        Label3.Size = New Size(55, 15)
         Label3.TabIndex = 10
         Label3.Text = "Cantidad"
         ' 
@@ -170,19 +170,19 @@ Partial Class Movimientos
         ' 
         cbType.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
         cbType.FormattingEnabled = True
-        cbType.Location = New Point(171, 82)
+        cbType.Location = New Point(150, 62)
         cbType.Margin = New Padding(3, 2, 3, 2)
         cbType.Name = "cbType"
-        cbType.Size = New Size(175, 28)
+        cbType.Size = New Size(154, 23)
         cbType.TabIndex = 9
         ' 
         ' Label2
         ' 
         Label2.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
         Label2.AutoSize = True
-        Label2.Location = New Point(11, 84)
+        Label2.Location = New Point(10, 63)
         Label2.Name = "Label2"
-        Label2.Size = New Size(39, 20)
+        Label2.Size = New Size(31, 15)
         Label2.TabIndex = 8
         Label2.Text = "Tipo"
         ' 
@@ -190,29 +190,29 @@ Partial Class Movimientos
         ' 
         cbProductID.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
         cbProductID.FormattingEnabled = True
-        cbProductID.Location = New Point(171, 26)
+        cbProductID.Location = New Point(150, 20)
         cbProductID.Margin = New Padding(3, 2, 3, 2)
         cbProductID.Name = "cbProductID"
-        cbProductID.Size = New Size(175, 28)
+        cbProductID.Size = New Size(154, 23)
         cbProductID.TabIndex = 7
         ' 
         ' Label1
         ' 
         Label1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
         Label1.AutoSize = True
-        Label1.Location = New Point(11, 30)
+        Label1.Location = New Point(10, 22)
         Label1.Name = "Label1"
-        Label1.Size = New Size(69, 20)
+        Label1.Size = New Size(56, 15)
         Label1.TabIndex = 6
         Label1.Text = "Producto"
         ' 
         ' PictureBox7
         ' 
         PictureBox7.Image = My.Resources.Resources.loguito
-        PictureBox7.Location = New Point(82, 73)
+        PictureBox7.Location = New Point(72, 55)
         PictureBox7.Margin = New Padding(3, 2, 3, 2)
         PictureBox7.Name = "PictureBox7"
-        PictureBox7.Size = New Size(187, 134)
+        PictureBox7.Size = New Size(164, 100)
         PictureBox7.SizeMode = PictureBoxSizeMode.Zoom
         PictureBox7.TabIndex = 7
         PictureBox7.TabStop = False
@@ -224,10 +224,10 @@ Partial Class Movimientos
         btnSearch.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(66), CByte(51), CByte(85))
         btnSearch.FlatStyle = FlatStyle.Flat
         btnSearch.ForeColor = SystemColors.Control
-        btnSearch.Location = New Point(363, 46)
+        btnSearch.Location = New Point(318, 34)
         btnSearch.Margin = New Padding(3, 2, 3, 2)
         btnSearch.Name = "btnSearch"
-        btnSearch.Size = New Size(105, 42)
+        btnSearch.Size = New Size(92, 32)
         btnSearch.TabIndex = 8
         btnSearch.Text = "Buscar"
         btnSearch.UseVisualStyleBackColor = True
@@ -241,11 +241,11 @@ Partial Class Movimientos
         GroupBox2.Controls.Add(ComboBox1)
         GroupBox2.Controls.Add(Label5)
         GroupBox2.ForeColor = SystemColors.Control
-        GroupBox2.Location = New Point(837, 73)
+        GroupBox2.Location = New Point(732, 55)
         GroupBox2.Margin = New Padding(3, 2, 3, 2)
         GroupBox2.Name = "GroupBox2"
         GroupBox2.Padding = New Padding(3, 2, 3, 2)
-        GroupBox2.Size = New Size(480, 134)
+        GroupBox2.Size = New Size(420, 100)
         GroupBox2.TabIndex = 9
         GroupBox2.TabStop = False
         GroupBox2.Text = "Consultas"
@@ -254,19 +254,19 @@ Partial Class Movimientos
         ' 
         ComboBox2.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
         ComboBox2.FormattingEnabled = True
-        ComboBox2.Location = New Point(170, 82)
+        ComboBox2.Location = New Point(149, 62)
         ComboBox2.Margin = New Padding(3, 2, 3, 2)
         ComboBox2.Name = "ComboBox2"
-        ComboBox2.Size = New Size(175, 28)
+        ComboBox2.Size = New Size(154, 23)
         ComboBox2.TabIndex = 11
         ' 
         ' Label6
         ' 
         Label6.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
         Label6.AutoSize = True
-        Label6.Location = New Point(9, 84)
+        Label6.Location = New Point(8, 63)
         Label6.Name = "Label6"
-        Label6.Size = New Size(39, 20)
+        Label6.Size = New Size(31, 15)
         Label6.TabIndex = 10
         Label6.Text = "Tipo"
         ' 
@@ -274,19 +274,19 @@ Partial Class Movimientos
         ' 
         ComboBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
         ComboBox1.FormattingEnabled = True
-        ComboBox1.Location = New Point(170, 26)
+        ComboBox1.Location = New Point(149, 20)
         ComboBox1.Margin = New Padding(3, 2, 3, 2)
         ComboBox1.Name = "ComboBox1"
-        ComboBox1.Size = New Size(175, 28)
+        ComboBox1.Size = New Size(154, 23)
         ComboBox1.TabIndex = 9
         ' 
         ' Label5
         ' 
         Label5.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
         Label5.AutoSize = True
-        Label5.Location = New Point(9, 30)
+        Label5.Location = New Point(8, 22)
         Label5.Name = "Label5"
-        Label5.Size = New Size(69, 20)
+        Label5.Size = New Size(56, 15)
         Label5.TabIndex = 8
         Label5.Text = "Producto"
         ' 
@@ -294,21 +294,20 @@ Partial Class Movimientos
         ' 
         Label12.Anchor = AnchorStyles.Top Or AnchorStyles.Right
         Label12.AutoSize = True
-        Label12.Font = New Font("Segoe UI", 12.0F)
+        Label12.Font = New Font("Segoe UI", 12F)
         Label12.ForeColor = Color.FromArgb(CByte(198), CByte(149), CByte(72))
-        Label12.Location = New Point(1243, 4)
+        Label12.Location = New Point(1088, 3)
         Label12.Name = "Label12"
-        Label12.Size = New Size(127, 28)
+        Label12.Size = New Size(101, 21)
         Label12.TabIndex = 17
         Label12.Text = "Movimientos"
         ' 
         ' ListView1
         ' 
         ListView1.Columns.AddRange(New ColumnHeader() {colID, colProdID, colType, colNumber, colNumberPrev, colNumberNew, colMotive, colUser, colReference, colCreated_at})
-        ListView1.Location = New Point(658, 266)
-        ListView1.Margin = New Padding(3, 4, 3, 4)
+        ListView1.Location = New Point(576, 200)
         ListView1.Name = "ListView1"
-        ListView1.Size = New Size(700, 698)
+        ListView1.Size = New Size(613, 524)
         ListView1.TabIndex = 18
         ListView1.UseCompatibleStateImageBehavior = False
         ListView1.View = View.Details
@@ -358,9 +357,10 @@ Partial Class Movimientos
         ' 
         ' tbIdmovimiento
         ' 
-        tbIdmovimiento.Location = New Point(185, 30)
+        tbIdmovimiento.Location = New Point(162, 22)
+        tbIdmovimiento.Margin = New Padding(3, 2, 3, 2)
         tbIdmovimiento.Name = "tbIdmovimiento"
-        tbIdmovimiento.Size = New Size(156, 27)
+        tbIdmovimiento.Size = New Size(137, 23)
         tbIdmovimiento.TabIndex = 19
         ' 
         ' GroupBox3
@@ -370,11 +370,11 @@ Partial Class Movimientos
         GroupBox3.Controls.Add(tbIdmovimiento)
         GroupBox3.Controls.Add(Label8)
         GroupBox3.ForeColor = SystemColors.Control
-        GroupBox3.Location = New Point(344, 73)
+        GroupBox3.Location = New Point(301, 55)
         GroupBox3.Margin = New Padding(3, 2, 3, 2)
         GroupBox3.Name = "GroupBox3"
         GroupBox3.Padding = New Padding(3, 2, 3, 2)
-        GroupBox3.Size = New Size(381, 134)
+        GroupBox3.Size = New Size(333, 100)
         GroupBox3.TabIndex = 12
         GroupBox3.TabStop = False
         GroupBox3.Text = "Imprimir"
@@ -386,10 +386,10 @@ Partial Class Movimientos
         btnPritMovimiento.FlatAppearance.MouseOverBackColor = Color.FromArgb(CByte(66), CByte(51), CByte(85))
         btnPritMovimiento.FlatStyle = FlatStyle.Flat
         btnPritMovimiento.ForeColor = SystemColors.Control
-        btnPritMovimiento.Location = New Point(185, 73)
+        btnPritMovimiento.Location = New Point(162, 55)
         btnPritMovimiento.Margin = New Padding(3, 2, 3, 2)
         btnPritMovimiento.Name = "btnPritMovimiento"
-        btnPritMovimiento.Size = New Size(156, 42)
+        btnPritMovimiento.Size = New Size(136, 32)
         btnPritMovimiento.TabIndex = 20
         btnPritMovimiento.Text = "Comprobante"
         btnPritMovimiento.UseVisualStyleBackColor = True
@@ -398,18 +398,18 @@ Partial Class Movimientos
         ' 
         Label8.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left
         Label8.AutoSize = True
-        Label8.Location = New Point(9, 29)
+        Label8.Location = New Point(8, 22)
         Label8.Name = "Label8"
-        Label8.Size = New Size(108, 20)
+        Label8.Size = New Size(86, 15)
         Label8.TabIndex = 8
         Label8.Text = "ID Movimiento"
         ' 
         ' Movimientos
         ' 
-        AutoScaleDimensions = New SizeF(8.0F, 20.0F)
+        AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.FromArgb(CByte(49), CByte(33), CByte(70))
-        ClientSize = New Size(1405, 882)
+        ClientSize = New Size(1229, 662)
         Controls.Add(GroupBox3)
         Controls.Add(ListView1)
         Controls.Add(Label12)
